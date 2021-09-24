@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:f="http://java.sun.com/jsf/core"
+ xmlns:ui="http://java.sun.com/jsf/facelets"
+ xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Projeto Desafio</title>
+	<h:outputStylesheet library = "css" name = "estilo.css"  />
+</h:head>
+
+<h:body>
+	<h:form id="formCadEv">
+	<ui:insert name="menu">
+		<ui:include src="/menu.xhtml"></ui:include>
+	</ui:insert>
+	
+	<div class="principal-form">
+		<p:growl id="messages" showDetail="true"/>
+		<table>
+			<tr>
+				<td><h:outputLabel for="nome" value="Nome : " /></td>
+				<td>
+					<p:inputText id="nome" value="#{eventoMB.nome}">
+						<f:validateLength minimum="5" />
+					<p:ajax event="blur" update="nomeMsg" />
+					</p:inputText>
+					<p:message id="nomeMsg" for="nome" display="icon"/>
+				</td>
+			</tr>
+			<tr>
+				<td><h:outputLabel for="data" value="Data do evento : " /></td>
+				<td>
+					<p:calendar  id="data" pattern="dd/mm/yyyy" value="#{eventoMB.data}"/>
+				</td>
+			</tr>
+			<tr>
+				<td><h:outputLabel for="hora" value="Hora do evento : " /></td>
+				<td>
+					<p:calendar timeOnly="true" pattern="hh:mm:ss" id="hora" value="#{eventoMB.hora}" />
+				</td>
+			</tr>
+			<tr>
+				<td><h:outputLabel for="local" value="Local : " /></td>
+				<td>
+					<p:inputText id="local" value="#{eventoMB.local}">
+						<f:validateLength minimum="5" />
+					<p:ajax event="blur" update="localMsg" />
+					</p:inputText>
+					<p:message id="localMsg" for="local" display="icon"/>
+				</td>
+			</tr>
+			<tr>
+			 <td><p:commandButton id="addEvento" value="Salvar" action="#{eventoMB.addEvento}" update=":formCadEv"/></td>
+			 <td><p:commandButton id="resetEvento" value="Reset" action="#{eventoMB.reset}" update=":formCadEv"/></td>
+			</tr>
+			
+		</table>		
+	 
+	</div>
+	</h:form>
+</h:body>
+ 
+</html>

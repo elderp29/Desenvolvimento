@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Projeto Desafio</title>
+	<h:outputStylesheet library="css" name="estilo.css" />
+</h:head>
+
+<h:body>
+	<h:form id="formCadEvUsa">
+		<ui:insert name="menu">
+			<ui:include src="/menu.xhtml"></ui:include>
+		</ui:insert>
+
+		<div class="principal-form">
+			<p:growl id="messages" showDetail="true" />
+			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+			
+				<h:outputLabel for="idEvento" value="Eventos: " />
+		        <p:selectOneMenu id="idEvento" value="#{eventoUsuarioMB.idEvento}">
+		            <f:selectItem itemLabel="Select One" itemValue="" />
+		            <f:selectItems value="#{eventoUsuarioMB.eventoList}" />
+		        </p:selectOneMenu>
+		        
+		        <h:outputLabel for="idUsuario" value="Usuarios: " />
+		        <p:selectOneMenu id="idUsuario" value="#{eventoUsuarioMB.idUsuario}">
+		            <f:selectItem itemLabel="Select One" itemValue="" />
+		            <f:selectItems value="#{eventoUsuarioMB.usuarioList}" />
+		        </p:selectOneMenu>
+			</h:panelGrid>
+			<table>
+				<tr>
+					<td><p:commandButton id="addEvento" value="Salvar" action="#{eventoUsuarioMB.addEventoUsuario}" ajax="false" /></td>
+					<td><p:commandButton id="resetEvento" value="Reset" action="#{eventoUsuarioMB.reset}" ajax="false" /></td>				</tr>
+			</table>
+
+		</div>
+	</h:form>
+</h:body>
+
+</html>

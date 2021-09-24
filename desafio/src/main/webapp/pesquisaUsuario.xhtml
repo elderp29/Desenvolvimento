@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:f="http://java.sun.com/jsf/core"
+ xmlns:ui="http://java.sun.com/jsf/facelets"
+ xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Projeto Desafio</title>
+	<h:outputStylesheet library = "css" name = "estilo.css"  />
+</h:head>
+<h:body>
+	<h:form>
+		<ui:insert name="menu">
+			<ui:include src="/menu.xhtml"></ui:include>
+		</ui:insert>
+		<div class="principal-form">
+			<h:outputText value="Lista de usuarios " styleClass="titulo-tx"/>
+			<p:dataTable  var="usuario" value="#{usuarioMB.usuarioList}" style="width: 10%">
+				<p:column headerText="Id">
+					<h:outputText value="#{usuario.id}" />
+				</p:column>
+				<p:column headerText="Nome">
+					<h:outputText value="#{usuario.nome}" />
+				</p:column>
+				<p:column headerText="Senha">
+					<h:outputText value="#{usuario.senha}" />
+				</p:column>
+				<p:column headerText="email">
+					 <h:outputText value="#{usuario.email}" />
+				</p:column>
+			</p:dataTable>
+		</div>
+	</h:form>
+</h:body>
+ 
+</html>

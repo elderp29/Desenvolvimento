@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Projeto Desafio</title>
+	<h:outputStylesheet library = "css" name = "estilo.css"  />
+</h:head>
+<h:body> 
+	<h:form>
+		<div class="principal-form">
+		
+			<p:growl id="messages" showDetail="true"/>
+			<h3 class="titulo-h3">Login do usuario</h3>		
+			<table class="principal-form">
+				<tr>
+					<td><h:outputLabel for="nome" value="Login : " /></td>
+					<td>
+						<p:inputText id="nome" value="#{usuarioMB.nome}">
+							<f:validateLength minimum="5" />
+							<p:ajax event="blur" update="nomeMsg" />
+						</p:inputText>
+						<p:message id="nomeMsg" for="nome" display="icon"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h:outputLabel for="senha" value="Senha : " />
+					</td>
+					<td>
+						<p:inputText onshow="false" id="senha" value="#{usuarioMB.senha}" >
+							<f:validateLength minimum="5" />
+							<p:ajax event="blur" update="senhaMsg" />
+						</p:inputText>
+						<p:message id="senhaMsg" for="senha" display="icon"/>
+					</td>
+				</tr>
+				<tr><td><BR /></td></tr>
+				<tr>
+					<td><p:commandButton id="btlogar" value="Logar" action="#{usuarioMB.logar}" ajax="false" /></td>
+					<td><p:commandButton id="btresetLogar" value="Limpar" action="#{usuarioMB.reset}" ajax="false"/></td>
+				</tr>
+			</table>
+		</div>
+	</h:form>
+</h:body>
+</html>

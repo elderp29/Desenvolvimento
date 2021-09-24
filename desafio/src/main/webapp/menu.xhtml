@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui">  
+ 
+ <h:head>
+ 	<title>Projeto Desafio</title>
+ 	<h:outputStylesheet library = "css" name = "estilo.css"  />
+ </h:head>
+ <h:body>
+     
+     	 
+	     <div class="menu-form">
+	         <p:menubar>
+				<p:submenu label="Cadastrar">
+					<p:menuitem value="Usuario" action="#{menuMB.caregarTelaUsuario}" ajax="false"></p:menuitem>
+					<p:menuitem value="Evento"  action="#{menuMB.caregarTelaEvento}"  ajax="false"></p:menuitem>
+					<p:separator/>
+					<p:menuitem value="Associar evento" action="#{menuMB.caregarTelaEventoUsuario}"  ajax="false"></p:menuitem>
+				</p:submenu>
+				<p:submenu label="Consultar">
+					<p:menuitem value="Usuario" action="#{menuMB.caregarConsultaUsuario}" ajax="false"></p:menuitem>
+					<p:menuitem value="Evento" action="#{menuMB.caregarConsultaEvento}" ajax="false"></p:menuitem>
+					<p:separator/>
+					<p:menuitem value="Associar evento"></p:menuitem>
+				</p:submenu>
+			</p:menubar>
+		 </div>
+ 
+ 
+</h:body>
+</html>
