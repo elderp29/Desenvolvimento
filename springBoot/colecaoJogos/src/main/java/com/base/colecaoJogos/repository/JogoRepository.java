@@ -12,7 +12,7 @@ public class JogoRepository {
     public List<Jogo> getAllJogo(){
 
         final List<Jogo> jogo = new ArrayList<Jogo>();
-        jogo.add(new Jogo(1, "GTA","Console","mundo aberto"));
+        jogo.add(new Jogo(1L, "GTA","Console","mundo aberto"));
 
         return jogo;
     }
